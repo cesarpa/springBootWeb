@@ -1,5 +1,6 @@
 package com.cesarpa.controllers;
 
+import com.cesarpa.models.Alien;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -12,9 +13,10 @@ import javax.servlet.http.HttpSession;
 public class HomeController {
 
     @RequestMapping("home")
-    public ModelAndView home(@RequestParam("name") String myName) {
+    public ModelAndView home(Alien alien) {
         var mv = new ModelAndView();
-        mv.addObject("name", myName);
+        mv.addObject("obj", alien);
+
         mv.setViewName("home");
         return mv;
     }
